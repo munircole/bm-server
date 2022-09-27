@@ -62,7 +62,7 @@ module.exports = {
   },
   Mutation: {
     register: async (_, args) => {
-      const {username, email, country, department, password } = args;
+      const {username, email, department, password } = args;
       const { errors, valid } = registerValidator(username, email, department, password);
 
       if (!valid) {
