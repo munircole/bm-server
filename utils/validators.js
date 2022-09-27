@@ -1,11 +1,5 @@
-const registerValidator = (firstName, lastName, username, email, country, contactNumber, gender, institutionType, institutionName, department, password) => {
+const registerValidator = (username, email, department, password) => {
   const errors = {};
-  if (firstName.trim() === '') {
-    errors.firstName = 'Please fill the first name field.';
-  }
-  if (lastName.trim() === '') {
-    errors.lastName = 'last name field must not be empty.';
-  }
 
   if (username.trim() === '' || username.length > 20 || username.length < 3) {
     errors.username = 'Username must be in range of 3-20 characters length .';
@@ -13,21 +7,6 @@ const registerValidator = (firstName, lastName, username, email, country, contac
 
   if (email.trim() === '') {
     errors.email = 'Username field must not be empty.';
-  }
-  if (country.trim() === '') {
-    errors.country = 'country field must not be empty.';
-  }
-  if (contactNumber.trim() === '') {
-    errors.contactNumber = 'Please fill in your contact number.';
-  }
-  if (gender.trim() === '') {
-    errors.gender = 'please select your gender.';
-  }
-  if (institutionType.trim() === '') {
-    errors.institutionType = 'this field must not be empty.';
-  }
-  if (institutionName.trim() === '') {
-    errors.institutionName = 'this field must not be empty.';
   }
   if (department.trim() === '') {
     errors.department = 'this field must not be empty.';

@@ -62,8 +62,8 @@ module.exports = {
   },
   Mutation: {
     register: async (_, args) => {
-      const {firstName, lastName, username, email, country, contactNumber, gender, institutionType, institutionName, department, password } = args;
-      const { errors, valid } = registerValidator(firstName, lastName, username, email, country, contactNumber, gender, institutionType, institutionName, department, password);
+      const {username, email, country, department, password } = args;
+      const { errors, valid } = registerValidator(username, email, department, password);
 
       if (!valid) {
         throw new UserInputError(Object.values(errors)[0], { errors });
@@ -81,15 +81,8 @@ module.exports = {
       const passwordHash = await bcrypt.hash(password, saltRounds);
 
       const user = new User({
-        firstName,
-        lastName,
         username,
         email,
-        country,
-        contactNumber,
-        gender,
-        institutionType,
-        institutionName,
         department,
         passwordHash,
       });
@@ -104,15 +97,8 @@ module.exports = {
 
       return {
         id: savedUser._id,
-        firstName:savedUser.firstName,
-        lastName:  savedUser.lastName,
         username: savedUser.username,
         email: savedUser.email,
-        country: savedUser.country,
-        contactNumber: savedUser.contactNumber,
-        gender: savedUser.gender,
-        institutionType: savedUser.institutionType,
-        institutionName:savedUser.institutionName,
         department: savedUser.department,
         role: savedUser.role,
         token,
@@ -153,15 +139,8 @@ module.exports = {
 
       return {
         id: user._id,
-        firstName:user.firstName,
-        lastName:  user.lastName,
         username: user.username,
         email: user.email,
-        country: user.country,
-        contactNumber: user.contactNumber,
-        gender: user.gender,
-        institutionType: user.institutionType,
-        institutionName:user.institutionName,
         department: user.department,
         role: user.role,
         token,

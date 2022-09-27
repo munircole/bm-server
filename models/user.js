@@ -5,12 +5,12 @@ const schemaCleaner = require('../utils/schemaCleaner');
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   lastName: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   
@@ -31,31 +31,31 @@ const userSchema = new mongoose.Schema({
   },
   country: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   contactNumber: {
     type: String,
     minlength: 10,
-    required: true,
+    required: false,
     trim: true,
     unique: true,
   },
 
   gender: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
 
   institutionType: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   institutionName: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   department: {
