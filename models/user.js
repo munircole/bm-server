@@ -39,7 +39,6 @@ const userSchema = new mongoose.Schema({
     minlength: 10,
     required: false,
     trim: true,
-    unique: true,
   },
 
   gender: {
